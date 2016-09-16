@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+eth_int="eth0"
+wlan_int="wlo1"
+#localip=$(hostname -i 2>/dev/null |tr -d " " )
+localip=$(ip a s $eth_int|grep "inet "|awk '{print $2}'|cut -d"/" -f1)
+if [ "$localip" = "" ] 
+    then
+        localip=$(ip a s $wlan_int|grep "inet "|awk '{print $2}'|cut -d"/" -f1)
+        #[ "$localip" =  "" ] && localip=$(ip a s wlo1|grep "inet "|awk '{print $2}'|cut -d"/" -f1)
+fi
+
+
+log=/tmp/sipe-collab.log
+date > $log
+xhost + >> $log 2>&1
+pulseaudio -k --start >> $log 2>&1
+echo STart Sipe Collab Container >> $log 2>&1
+docker  run -d -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -e \
+PULSE_SERVER=tcp:$localip:4713 -e PULSE_COOKIE=/run/pulse/cookie -v \
+~/.config/pulse/cookie:/run/pulse/cookie -v /home/$USER/.purple:/root/.purple \
+sipe-collab >> $log 2>&1
