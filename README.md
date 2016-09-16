@@ -23,6 +23,10 @@ for your convenience.
 Enjoy
 Alessandro
 
+Source
+===
+https://github.com/zioalex/docker-pidgin
+
 Credits
 ===
 Based on https://github.com/kohlerm/docker-pidgin

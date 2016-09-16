@@ -1,6 +1,6 @@
 # Base docker image
 # Build with
-# docker build -t sipe-collab ./
+# docker build -t zioalex/sipe-collab ./
 # docker  run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix sipe-collab
 # docker  run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -e PULSE_SERVER=tcp:$(hostname -i):4713  -e PULSE_COOKIE=/run/pulse/cookie -v ~/.config/pulse/cookie:/run/pulse/cookie sipe-collab
 # Audio in Docker
