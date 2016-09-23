@@ -62,5 +62,7 @@ RUN mkdir -p /usr/share/icons/hicolor && \
 #CMD [ "/usr/bin/pidgin" ]
 #RUN  /bin/bash -c '/usr/bin/pavucontrol &'
 #RUN  /bin/bash -c '/usr/bin/pidgin'
-CMD /bin/bash -c '/usr/bin/pavucontrol& /usr/bin/pidgin'
+#CMD /bin/bash -c '/usr/bin/pavucontrol& /usr/bin/pidgin'
+# Audio setting can be managed directly from the host pulse
+CMD /bin/bash -c '/usr/bin/pidgin'
 
