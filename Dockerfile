@@ -64,5 +64,10 @@ RUN mkdir -p /usr/share/icons/hicolor && \
 #RUN  /bin/bash -c '/usr/bin/pidgin'
 #CMD /bin/bash -c '/usr/bin/pavucontrol& /usr/bin/pidgin'
 # Audio setting can be managed directly from the host pulse
+
+# My timezone
+RUN echo "Europe/Berlin" > /etc/timezone
+RUN ln -fs /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+
 CMD /bin/bash -c '/usr/bin/pidgin'
 

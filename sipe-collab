@@ -19,4 +19,4 @@ echo STart Sipe Collab Container >> $log 2>&1
 docker  run -d -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -e \
 PULSE_SERVER=tcp:$localip:4713 -e PULSE_COOKIE=/run/pulse/cookie -v \
 ~/.config/pulse/cookie:/run/pulse/cookie -v /home/$USER/.purple:/root/.purple \
-zioalex/sipe-collab >> $log 2>&1
+zioalex/sipe-collab:current >> $log 2>&1
