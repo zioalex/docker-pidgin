@@ -11,8 +11,11 @@ not available!
 
 The audio is working through the pulse server running on your host. Be sure to
 have enabled the features:
-"Enable network access to local sound devices" and
-"Don't require authentication"
+
+ "Enable network access to local sound devices"
+ 
+ "Don't require authentication"
+ 
 in paprefs
 
 I created a script called sipe-pidgin that helps to run the docker container and connect to the
