@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 
-eth_int="eth0"
+eth_ints="eth0 enp0s25"
 wlan_int="wlo1"
 #localip=$(hostname -i 2>/dev/null |tr -d " " )
-localip=$(ip a s $eth_int|grep "inet "|awk '{print $2}'|cut -d"/" -f1)
-if [ "$localip" = "" ] 
-    then
-        localip=$(ip a s $wlan_int|grep "inet "|awk '{print $2}'|cut -d"/" -f1)
-        #[ "$localip" =  "" ] && localip=$(ip a s wlo1|grep "inet "|awk '{print $2}'|cut -d"/" -f1)
-fi
+for eth_int in $eth_ints
+    do
+    localip=$(ip a s $eth_int|grep "inet "|awk '{print $2}'|cut -d"/" -f1)
+    if [ "$localip" = "" ] 
+        then
+            localip=$(ip a s $wlan_int|grep "inet "|awk '{print $2}'|cut -d"/" -f1)
+            #[ "$localip" =  "" ] && localip=$(ip a s wlo1|grep "inet "|awk '{print $2}'|cut -d"/" -f1)
+    fi
+done
 
 
 log=/tmp/sipe-collab.log
