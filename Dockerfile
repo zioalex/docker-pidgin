@@ -13,6 +13,8 @@
 # https://code.launchpad.net/~sipe-collab/+recipe/pkg-sipe-daily
 # https://github.com/kohlerm/docker-pidgin/blob/master/Dockerfile
 # https://launchpad.net/~sipe-collab
+# DBUS in the container
+# http://ask.projectatomic.io/en/question/3647/how-to-connect-to-session-dbus-from-a-docker-container/
 
 FROM ubuntu:xenial
 MAINTAINER zioalex@gmail.com
