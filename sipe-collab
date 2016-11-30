@@ -5,7 +5,7 @@ wlan_int="wlo1"
 #localip=$(hostname -i 2>/dev/null |tr -d " " )
 for eth_int in $eth_ints
     do
-    localip=$(ip a s $eth_int|grep "inet "|awk '{print $2}'|cut -d"/" -f1)
+    [ -z $localip ] &&  localip=$(ip a s $eth_int|grep "inet "|awk '{print $2}'|cut -d"/" -f1)
     if [ "$localip" = "" ] 
         then
             localip=$(ip a s $wlan_int|grep "inet "|awk '{print $2}'|cut -d"/" -f1)

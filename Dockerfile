@@ -50,6 +50,7 @@ RUN mkdir -p /usr/share/icons/hicolor && \
      gnome-keyring\
      pulseaudio \ 
      pavucontrol \
+     firefox \
         pidgin  \
         pidgin-sipe && \
      rm -rf /var/lib/apt/lists/*
